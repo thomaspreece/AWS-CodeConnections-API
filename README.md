@@ -12,7 +12,7 @@ This code was used in the research that is detailed in the following blog posts:
 
 ## Requirements
 
-- Load `Iac/IAMRoles-CodeConnectins.yaml`, `Iac/IAMRoles-CodeStar.yaml` and `Iac/IAMRoles-CodeStarWCodeConnectionConditions.yaml` into your AWS Account
+- Load `infrastructure/IAMRoles-CodeConnectins.yaml`, `infrastructure/IAMRoles-CodeStar.yaml` and `infrastructure/IAMRoles-CodeStarWCodeConnectionConditions.yaml` into your AWS Account
 - Setup CodeConnections into your AWS Account for the different source code providers you want to test.
 - Install the python dependencies listed in `requirements.txt`
 
