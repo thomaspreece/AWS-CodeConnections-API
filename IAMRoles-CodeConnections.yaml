@@ -1,0 +1,187 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Description: IAM Role that can be assumed by any principal in account 851725397705
+
+Resources:
+  CodeConnectionUseConnectionNoConditions:
+    Type: AWS::IAM::Role
+    Properties:
+      RoleName: CodeConnectionUseConnectionNoConditions
+      AssumeRolePolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: Allow
+            Principal:
+              AWS: "arn:aws:iam::851725397705:root"
+            Action: "sts:AssumeRole"
+      Path: "/"
+      Policies:
+        - PolicyName: InlinePolicy
+          PolicyDocument:
+            Version: "2012-10-17"
+            Statement:
+              - Effect: Allow
+                Action:
+                  - codeconnections:UseConnection
+                Resource: "*"
+  CodeConnectionUseConnectionFullRepositoryIdConditionAll:
+    Type: AWS::IAM::Role
+    Properties:
+      RoleName: CodeConnectionUseConnectionFullRepositoryIdConditionAll
+      AssumeRolePolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: Allow
+            Principal:
+              AWS: "arn:aws:iam::851725397705:root"
+            Action: "sts:AssumeRole"
+      Path: "/"
+      Policies:
+        - PolicyName: InlinePolicy
+          PolicyDocument:
+            Version: "2012-10-17"
+            Statement:
+              - Effect: Allow
+                Action:
+                  - codeconnections:UseConnection
+                Resource: "*"
+                Condition:
+                  StringEquals:
+                    "codeconnections:FullRepositoryId": 
+                      - "thomaspreece-test-org/repo-1"
+                      - "thomaspreece-test-org/repo-2"
+  CodeConnectionUseConnectionFullRepositoryIdConditionOne:
+    Type: AWS::IAM::Role
+    Properties:
+      RoleName: CodeConnectionUseConnectionFullRepositoryIdConditionOne
+      AssumeRolePolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: Allow
+            Principal:
+              AWS: "arn:aws:iam::851725397705:root"
+            Action: "sts:AssumeRole"
+      Path: "/"
+      Policies:
+        - PolicyName: InlinePolicy
+          PolicyDocument:
+            Version: "2012-10-17"
+            Statement:
+              - Effect: Allow
+                Action:
+                  - codeconnections:UseConnection
+                Resource: "*"
+                Condition:
+                  StringEquals:
+                    "codeconnections:FullRepositoryId": 
+                      - "thomaspreece-test-org/repo-1"
+  CodeConnectionUseConnectionPermissionsConditionAll:
+    Type: AWS::IAM::Role
+    Properties:
+      RoleName: CodeConnectionUseConnectionPermissionsConditionAll
+      AssumeRolePolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: Allow
+            Principal:
+              AWS: "arn:aws:iam::851725397705:root"
+            Action: "sts:AssumeRole"
+      Path: "/"
+      Policies:
+        - PolicyName: InlinePolicy
+          PolicyDocument:
+            Version: "2012-10-17"
+            Statement:
+              - Effect: Allow
+                Action:
+                  - codeconnections:UseConnection
+                Resource: "*"
+                Condition:
+                  StringEquals:
+                    "codeconnections:ProviderPermissionsRequired": "read_write"
+  CodeConnectionUseConnectionPermissionsConditionOne:
+    Type: AWS::IAM::Role
+    Properties:
+      RoleName: CodeConnectionUseConnectionPermissionsConditionOne
+      AssumeRolePolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: Allow
+            Principal:
+              AWS: "arn:aws:iam::851725397705:root"
+            Action: "sts:AssumeRole"
+      Path: "/"
+      Policies:
+        - PolicyName: InlinePolicy
+          PolicyDocument:
+            Version: "2012-10-17"
+            Statement:
+              - Effect: Allow
+                Action:
+                  - codeconnections:UseConnection
+                Resource: "*"
+                Condition:
+                  StringEquals:
+                    "codeconnections:ProviderPermissionsRequired": "read_only"
+  CodeConnectionUseConnectionActionConditionAll:
+    Type: AWS::IAM::Role
+    Properties:
+      RoleName: CodeConnectionUseConnectionActionConditionAll
+      AssumeRolePolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: Allow
+            Principal:
+              AWS: "arn:aws:iam::851725397705:root"
+            Action: "sts:AssumeRole"
+      Path: "/"
+      Policies:
+        - PolicyName: InlinePolicy
+          PolicyDocument:
+            Version: "2012-10-17"
+            Statement:
+              - Effect: Allow
+                Action:
+                  - codeconnections:UseConnection
+                Resource: "*"
+                Condition:
+                  StringEquals:
+                    "codeconnections:ProviderAction": 
+                      - "GetBranch"
+                      - "ListRepositories"
+                      - "ListOwners"
+                      - "ListBranches"
+                      - "StartUploadArchiveToS3"
+                      - "GitPush"
+                      - "GitPull"
+                      - "GetUploadArchiveToS3Status"
+                      - "CreatePullRequestDiffComment"
+                      - "GetPullRequest"
+                      - "ListBranchCommits"
+                      - "ListCommitFiles"
+                      - "ListPullRequestComments"
+                      - "ListPullRequestCommits"                    
+  CodeConnectionUseConnectionActionConditionOne:
+    Type: AWS::IAM::Role
+    Properties:
+      RoleName: CodeConnectionUseConnectionActionConditionOne
+      AssumeRolePolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: Allow
+            Principal:
+              AWS: "arn:aws:iam::851725397705:root"
+            Action: "sts:AssumeRole"
+      Path: "/"
+      Policies:
+        - PolicyName: InlinePolicy
+          PolicyDocument:
+            Version: "2012-10-17"
+            Statement:
+              - Effect: Allow
+                Action:
+                  - codeconnections:UseConnection
+                Resource: "*"
+                Condition:
+                  StringEquals:
+                    "codeconnections:ProviderAction": 
+                      - "GetBranch"                                    

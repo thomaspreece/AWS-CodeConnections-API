@@ -1,0 +1,187 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Description: IAM Role that can be assumed by any principal in account 851725397705
+
+Resources:
+  CodeStarConnectionNoConditions:
+    Type: AWS::IAM::Role
+    Properties:
+      RoleName: CodeStarConnectionNoConditions
+      AssumeRolePolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: Allow
+            Principal:
+              AWS: "arn:aws:iam::851725397705:root"
+            Action: "sts:AssumeRole"
+      Path: "/"
+      Policies:
+        - PolicyName: InlinePolicy
+          PolicyDocument:
+            Version: "2012-10-17"
+            Statement:
+              - Effect: Allow
+                Action:
+                  - codestar-connections:UseConnection
+                Resource: "*"
+  CodeStarConnectionFullRepositoryIdConditionAll:
+    Type: AWS::IAM::Role
+    Properties:
+      RoleName: CodeStarConnectionFullRepositoryIdConditionAll
+      AssumeRolePolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: Allow
+            Principal:
+              AWS: "arn:aws:iam::851725397705:root"
+            Action: "sts:AssumeRole"
+      Path: "/"
+      Policies:
+        - PolicyName: InlinePolicy
+          PolicyDocument:
+            Version: "2012-10-17"
+            Statement:
+              - Effect: Allow
+                Action:
+                  - codestar-connections:UseConnection
+                Resource: "*"
+                Condition:
+                  StringEquals:
+                    "codestar-connections:FullRepositoryId": 
+                      - "thomaspreece-test-org/repo-1"
+                      - "thomaspreece-test-org/repo-2"
+  CodeStarConnectionFullRepositoryIdConditionOne:
+    Type: AWS::IAM::Role
+    Properties:
+      RoleName: CodeStarConnectionFullRepositoryIdConditionOne
+      AssumeRolePolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: Allow
+            Principal:
+              AWS: "arn:aws:iam::851725397705:root"
+            Action: "sts:AssumeRole"
+      Path: "/"
+      Policies:
+        - PolicyName: InlinePolicy
+          PolicyDocument:
+            Version: "2012-10-17"
+            Statement:
+              - Effect: Allow
+                Action:
+                  - codestar-connections:UseConnection
+                Resource: "*"
+                Condition:
+                  StringEquals:
+                    "codestar-connections:FullRepositoryId": 
+                      - "thomaspreece-test-org/repo-1"
+  CodeStarConnectionPermissionsConditionAll:
+    Type: AWS::IAM::Role
+    Properties:
+      RoleName: CodeStarConnectionPermissionsConditionAll
+      AssumeRolePolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: Allow
+            Principal:
+              AWS: "arn:aws:iam::851725397705:root"
+            Action: "sts:AssumeRole"
+      Path: "/"
+      Policies:
+        - PolicyName: InlinePolicy
+          PolicyDocument:
+            Version: "2012-10-17"
+            Statement:
+              - Effect: Allow
+                Action:
+                  - codestar-connections:UseConnection
+                Resource: "*"
+                Condition:
+                  StringEquals:
+                    "codestar-connections:ProviderPermissionsRequired": "read_write"
+  CodeStarConnectionPermissionsConditionOne:
+    Type: AWS::IAM::Role
+    Properties:
+      RoleName: CodeStarConnectionPermissionsConditionOne
+      AssumeRolePolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: Allow
+            Principal:
+              AWS: "arn:aws:iam::851725397705:root"
+            Action: "sts:AssumeRole"
+      Path: "/"
+      Policies:
+        - PolicyName: InlinePolicy
+          PolicyDocument:
+            Version: "2012-10-17"
+            Statement:
+              - Effect: Allow
+                Action:
+                  - codestar-connections:UseConnection
+                Resource: "*"
+                Condition:
+                  StringEquals:
+                    "codestar-connections:ProviderPermissionsRequired": "read_only"
+  CodeStarConnectionActionConditionAll:
+    Type: AWS::IAM::Role
+    Properties:
+      RoleName: CodeStarConnectionActionConditionAll
+      AssumeRolePolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: Allow
+            Principal:
+              AWS: "arn:aws:iam::851725397705:root"
+            Action: "sts:AssumeRole"
+      Path: "/"
+      Policies:
+        - PolicyName: InlinePolicy
+          PolicyDocument:
+            Version: "2012-10-17"
+            Statement:
+              - Effect: Allow
+                Action:
+                  - codestar-connections:UseConnection
+                Resource: "*"
+                Condition:
+                  StringEquals:
+                    "codestar-connections:ProviderAction": 
+                      - "GetBranch"
+                      - "ListRepositories"
+                      - "ListOwners"
+                      - "ListBranches"
+                      - "StartUploadArchiveToS3"
+                      - "GitPush"
+                      - "GitPull"
+                      - "GetUploadArchiveToS3Status"
+                      - "CreatePullRequestDiffComment"
+                      - "GetPullRequest"
+                      - "ListBranchCommits"
+                      - "ListCommitFiles"
+                      - "ListPullRequestComments"
+                      - "ListPullRequestCommits"                    
+  CodeStarConnectionActionConditionOne:
+    Type: AWS::IAM::Role
+    Properties:
+      RoleName: CodeStarConnectionActionConditionOne
+      AssumeRolePolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: Allow
+            Principal:
+              AWS: "arn:aws:iam::851725397705:root"
+            Action: "sts:AssumeRole"
+      Path: "/"
+      Policies:
+        - PolicyName: InlinePolicy
+          PolicyDocument:
+            Version: "2012-10-17"
+            Statement:
+              - Effect: Allow
+                Action:
+                  - codestar-connections:UseConnection
+                Resource: "*"
+                Condition:
+                  StringEquals:
+                    "codestar-connections:ProviderAction": 
+                      - "GetBranch"                                    
