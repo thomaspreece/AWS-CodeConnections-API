@@ -9,7 +9,7 @@ codestar_ccc_iam_requests = []
 
 OUTPUT_ALL_DIFFERENCES = True
 
-with open('test-results.csv') as csv_file:
+with open('results.csv') as csv_file:
     csv_reader = csv.reader(csv_file, delimiter=',')
     first_line = True
     headers = []

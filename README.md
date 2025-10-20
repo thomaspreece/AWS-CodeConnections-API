@@ -12,15 +12,18 @@ This code was used in the research that is detailed in the following blog posts:
 
 ## Requirements
 
-- Load `IAMRoles-CodeConnectins.yaml`, `IAMRoles-CodeStar.yaml` and `IAMRoles-CodeStarWCodeConnectionConditions.yaml` into your AWS Account
+- Load `Iac/IAMRoles-CodeConnectins.yaml`, `Iac/IAMRoles-CodeStar.yaml` and `Iac/IAMRoles-CodeStarWCodeConnectionConditions.yaml` into your AWS Account
 - Setup CodeConnections into your AWS Account for the different source code providers you want to test.
 - Install the python dependencies listed in `requirements.txt`
 
 
 ## Use 
 
-- Update `test-codeconnection-api-methods.py` to use your AWS account ID and CodeConnection ARNs.
-- Update `test-codeconnection-api-methods.py` to use the owner and repos that your CodeConnections can access.
-- Run `python3 ./test-codeconnection-api-methods.py`
+- Update `src/test-codeconnection-api-methods.py` to use your AWS account ID and CodeConnection ARNs.
+- Update `src/test-codeconnection-api-methods.py` to use the owner and repos that your CodeConnections can access.
+- Run `python3 ./src/test-codeconnection-api-methods.py`
+- View results in `results.csv`
+- To do some basic analysis, run `python3 ./src/test--codeconnection-api-methods-analyse.py`
 
-Then view results in `results.csv`
+
+
