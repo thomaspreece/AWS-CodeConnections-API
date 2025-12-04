@@ -5,10 +5,7 @@ This repository provides code to call the undocumented AWS API operations in the
 The code in `make-unlisted-api-request.py` shows how to make a single undocumented AWS API operation call to CodeConnections API.
 The code in `test-codeconnection-api-methods.py` tests several CodeConnection operations to several different source code providers and also tests the effect different conditions on `UseConnection` IAM permission have on these operations.
 
-This code was used in the research that is detailed in the following blog posts:
-- TODO
-- TODO
-
+This code was used in the research contained within the blog posts under my [AWS CodeConnections project](https://thomaspreece.com/2025/12/04/project-aws-codeconnections/).
 
 ## Requirements
 
